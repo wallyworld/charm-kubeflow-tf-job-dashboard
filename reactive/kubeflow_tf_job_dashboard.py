@@ -17,7 +17,9 @@ def start_charm():
                 'name': 'tf-job-dashboard',
                 'image': ('gcr.io/kubeflow-images-public/'
                           'tf_operator:v20180329-a7511ff'),
-                'command': [],
+                'command': [
+                    '/opt/tensorflow_k8s/dashboard/backend',
+                ],
                 'ports': [
                     {
                         'name': 'tf-dashboard',
