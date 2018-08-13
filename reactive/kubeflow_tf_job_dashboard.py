@@ -1,7 +1,12 @@
-from charms.reactive import set_flag
+from charms.reactive import set_flag, clear_flag
 from charms.reactive import when, when_not
 
 from charms import layer
+
+
+@when('layer.docker-resource.tf-operator-image.changed')
+def update_image():
+    clear_flag('charm.kubeflow-tf-job-dashboard.started')
 
 
 @when('layer.docker-resource.tf-operator-image.available')
